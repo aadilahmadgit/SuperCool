@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>SuperCool</title>
+    <style>
+      /* Small helpers for responsive media */
+      video { width: 100%; height: auto; display: block; border-radius: 0.5rem; }
+      img { max-width: 100%; height: auto; display: block; }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between px-4 py-3 md:px-12">
+      <div class="flex items-center space-x-3">
+        <img src="./assets/Supercool_logo-removebg-preview.png" alt="SuperCool" class="h-12 md:h-20 w-auto" />
+      </div>
+
+      <!-- Desktop menu -->
+      <ul class="hidden md:flex space-x-4 items-center font-bold bg-gray-50 p-3 shadow-xl rounded-xl">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#service">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="hidden md:flex items-center space-x-3">
+        <i class="text-2xl fa-brands fa-facebook"></i>
+        <i class="text-2xl fa-brands fa-twitter"></i>
+        <i class="text-2xl fa-brands fa-instagram"></i>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="menu-btn" aria-label="Toggle menu" class="p-2 rounded-md bg-gray-100">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden bg-gray-50 mx-4 p-4 rounded-lg shadow md:hidden">
+      <ul class="flex flex-col space-y-2 font-semibold">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#service">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="flex items-center space-x-3 mt-3">
+        <i class="text-xl fa-brands fa-facebook"></i>
+        <i class="text-xl fa-brands fa-twitter"></i>
+        <i class="text-xl fa-brands fa-instagram"></i>
+      </div>
+    </div>
+
+    <!-- Carousel -->
+    <div class="relative w-full h-[60vh] md:h-screen overflow-hidden" id="home">
+      <!-- Carousel container -->
+      <div id="carousel" class="flex transition-transform duration-700 ease-in-out h-full">
+        <!-- Slide 1 -->
+        <div class="relative w-full h-full flex-shrink-0">
+          <img src="./assets/ac1.png" class="w-full h-full object-cover blur-sm" alt="Slide 1" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-white bg-black/40 px-4">
+            <h1 class="text-2xl md:text-5xl font-bold mb-4 text-center">Welcome to SuperCool</h1>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-lg font-medium">Learn More</button>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="relative w-full h-full flex-shrink-0">
+          <img src="./assets/ac6.jpg" class="w-full h-full object-cover blur-sm" alt="Slide 2" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-white bg-black/40 px-4">
+            <h1 class="text-2xl md:text-5xl font-bold mb-4 text-center">Stay Cool with Us</h1>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-lg font-medium">Get Started</button>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="relative w-full h-full flex-shrink-0">
+          <img src="./assets/ac2.jpg" class="w-full h-full object-cover blur-sm" alt="Slide 3" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-white bg-black/40 px-4">
+            <h1 class="text-2xl md:text-5xl font-bold mb-4 text-center">Cooling Solutions Simplified</h1>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-lg font-medium">Contact Us</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation buttons -->
+      <button id="prev" class="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 md:p-3 rounded-full hover:bg-black/70">‹</button>
+      <button id="next" class="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 md:p-3 rounded-full hover:bg-black/70">›</button>
+    </div>
+
+    <!--section 2 (hero + video) -->
+    <section class="mt-8 md:mt-10 px-4 md:px-12">
+      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 bg-[url('./assets/ac6.jpg')] bg-cover bg-center md:h-screen md:bg-fixed bg-blend-overlay bg-black/40 text-white rounded-lg p-6">
+        <div class="md:w-1/2 text-center md:text-left">
+          <h2 class="font-bold capitalize text-2xl md:text-3xl">Welcome to best cooling and heating service center</h2>
+          <p class="font-thin text-base md:text-xl mt-4 tracking-wide">We have the best technicians for installations, repairs and maintenance.</p>
+        </div>
+        <div class="md:w-1/2">
+          <video src="./assets/freezing.mp4" autoplay muted loop playsinline class="rounded-md"></video>
+        </div>
+      </div>
+    </section>
+
+    <!--section 3 (stats) -->
+    <section class="px-4 md:px-12 mt-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-gray-200 p-6 shadow-xl rounded-xl">
+        <div class="text-center">
+          <h3 class="text-xl font-semibold">Happy Clients</h3>
+          <p class="text-2xl font-bold mt-2">1234</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-semibold">Project Succeed</h3>
+          <p class="text-2xl font-bold mt-2">1234</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-semibold">Team Members</h3>
+          <p class="text-2xl font-bold mt-2">1234</p>
+        </div>
+      </div>
+    </section>
+
+    <!--section 4 (services) -->
+    <section id="service" class="px-4 md:px-12 mt-8">
+      <h2 class="font-bold text-2xl md:text-3xl text-center capitalize mb-4">Our Services</h2>
+      <div class="bg-gray-200 p-4 md:p-8 shadow-xl rounded-xl">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <li class="p-6 rounded-xl bg-[url('./assets/ac6.jpg')] bg-cover bg-center text-white font-bold text-xl md:text-3xl text-center">AC Repair</li>
+          <li class="p-6 rounded-xl bg-[url('./assets/acinstall.jpg')] bg-cover bg-center text-white font-bold text-xl md:text-3xl text-center">Installation</li>
+          <li class="p-6 rounded-xl bg-[url('./assets/chiller.jpg')] bg-cover bg-center text-white font-bold text-xl md:text-3xl text-center">Chiller</li>
+          <li class="p-6 rounded-xl bg-[url('./assets/wm.jpg')] bg-cover bg-center text-white font-bold text-xl md:text-3xl text-center">Washing Machine</li>
+          <li class="p-6 rounded-xl bg-[url('./assets/r1.jpg')] bg-cover bg-center text-white font-bold text-xl md:text-3xl text-center">Refrigerator Repair</li>
+          <li class="p-6 rounded-xl bg-[url('./assets/m1.jpg')] bg-cover bg-center text-white font-bold text-xl md:text-3xl text-center">Maintenance Services</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- section 5 (contact) -->
+    <section id="contact" class="px-4 md:px-12 mt-8">
+      <div class="flex flex-col md:flex-row items-stretch gap-6 bg-[url('./assets/siteeng.jpg')] bg-cover md:bg-fixed bg-center bg-blend-overlay bg-black/30 rounded-xl p-6 md:p-10">
+        <div class="md:w-1/2 flex flex-col justify-center gap-4 text-center md:text-left text-black">
+          <h2 class="capitalize text-3xl md:text-5xl font-bold">Contact us</h2>
+          <p class="capitalize text-xl md:text-2xl font-semibold">for individuals and organizations</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-full text-sm md:text-lg font-medium w-max">More Detail</button>
+        </div>
+
+        <div class="md:w-1/2 bg-white bg-opacity-90 rounded-lg shadow-xl p-4 md:p-6">
+          <form action="" class="flex flex-col gap-4">
+            <input type="text" placeholder="Name" class="text-black font-medium text-base border-b border-gray-300 focus:outline-none py-2" />
+            <input type="email" placeholder="Email" class="text-black font-medium text-base border-b border-gray-300 focus:outline-none py-2" />
+            <input type="tel" placeholder="Phone" class="text-black font-medium text-base border-b border-gray-300 focus:outline-none py-2" />
+            <textarea placeholder="Your Message" class="text-black font-medium text-base border-b border-gray-300 focus:outline-none py-2"></textarea>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm md:text-lg font-medium w-max">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- section 6 (team) -->
+    <section id="about" class="px-4 md:px-12 mt-8">
+      <div class="m-0 md:m-10 p-4 md:p-10 bg-gray-200 shadow-xl rounded-xl">
+        <h2 class="text-center font-bold tracking-wider text-2xl md:text-3xl mb-6">Meet our professional team members</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <img src="./assets/eng1.jpg" alt="Team 1" class="rounded" />
+          <img src="./assets/eng2.jpg" alt="Team 2" class="rounded" />
+          <img src="./assets/eng4.jpg" alt="Team 3" class="rounded" />
+          <img src="./assets/eng3.jpg" alt="Team 4" class="rounded" />
+        </div>
+      </div>
+    </section>
+
+    <!-- section 7 -->
+    <footer class="bg-gray-800 text-white p-6 md:p-10 mt-8 rounded-t-lg">
+      <div class="flex flex-col md:flex-row justify-between gap-6">
+        <div>
+          <h2 class="text-2xl font-bold mb-4">SuperCool</h2>
+          <p>Your trusted cooling and heating service provider.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul>
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#About" class="hover:underline">About</a></li>
+            <li><a href="#" class="hover:underline">Services</a></li>
+            <li><a href="#" class="hover:underline">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+          <p>Email: info@supercool.example</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts: carousel + mobile menu toggle -->
+    <script>
+      // Mobile menu toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // Carousel functionality
+      const carousel = document.getElementById('carousel');
+      if (carousel) {
+        const slides = carousel.children;
+        const total = slides.length;
+        let index = 0;
+
+        const update = () => {
+          carousel.style.transform = `translateX(-${index * 100}%)`;
+        };
+
+        const nextBtn = document.getElementById('next');
+        const prevBtn = document.getElementById('prev');
+        if (nextBtn) nextBtn.addEventListener('click', () => { index = (index + 1) % total; update(); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { index = (index - 1 + total) % total; update(); });
+
+        // Auto-slide
+        setInterval(() => { index = (index + 1) % total; update(); }, 4000);
+      }
+    </script>
+  </body>
+</html>
