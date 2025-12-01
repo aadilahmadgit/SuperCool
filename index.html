@@ -18,7 +18,25 @@
     <ul class="flex space-x-3 items-center font-bold bg-gray-50 mt-8 mb-8 p-3 shadow-xl rounded-xl pl-8 pr-8">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#service">Services</a></li>
+    <li class="relative">
+  <button id="servicesBtn" class="cursor-pointer focus:outline-none">
+    Services ▾
+  </button>
+
+  <!-- Dropdown -->
+  <ul id="servicesMenu"
+      class="absolute left-0 mt-1 hidden bg-white shadow-lg rounded-lg p-3 space-y-2 w-44 z-50">
+
+    <li><a href="acRepair.html" class="block hover:text-blue-500">AC Repair</a></li>
+    <li><a href="#ac-installation" class="block hover:text-blue-500">AC Installation</a></li>
+    <li><a href="#ac-servicing" class="block hover:text-blue-500">AC Servicing</a></li>
+    <li><a href="#fridge-repair" class="block hover:text-blue-500">Fridge Repair</a></li>
+    <li><a href="#washing-machine" class="block hover:text-blue-500">Washing Machine</a></li>
+
+  </ul>
+</li>
+
+
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="flex items-center space-x-2 p-2 mr-10">
@@ -212,7 +230,24 @@
   }, 4000);
 </script>
 
-  
+
+<!-- javascript dropdown functionality -->
+  <script>
+  const btn = document.getElementById("servicesBtn");
+  const menu = document.getElementById("servicesMenu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");   // click to open/close
+  });
+
+  // Close dropdown if clicking anywhere outside
+  document.addEventListener("click", (e) => {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add("hidden");
+    }
+  });
+</script>
+
 
 </body>     
 
